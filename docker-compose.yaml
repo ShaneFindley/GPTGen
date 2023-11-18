@@ -1,0 +1,13 @@
+version: '3'
+services:
+  springboot-app:
+    build: .
+    image: your-springboot-image:latest
+    ports:
+      - "8080:8080"
+  frontend-app:
+    build:
+      context: ./frontend
+    image: your-frontend-image:latest
+    ports:
+      - "3000:3000"

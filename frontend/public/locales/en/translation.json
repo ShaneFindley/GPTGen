@@ -1,0 +1,14 @@
+{
+    "itemList": {
+      "header": "Item List",
+      "id": "ID",
+      "name": "Name"
+    },
+    "addItemForm": {
+      "header": "Add Item",
+      "nameLabel": "Name:",
+      "addItemButton": "Add Item"
+    },
+    "greeting": "Hello"
+  }
+  

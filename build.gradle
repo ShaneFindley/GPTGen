@@ -1,0 +1,71 @@
+buildscript {
+     repositories {
+         mavenCentral()
+     }
+     dependencies {
+         classpath 'org.springframework.boot:spring-boot-gradle-plugin:3.1.5'
+       classpath 'com.github.node-gradle:node:7.0.1'
+     }
+ }
+
+ allprojects {
+     group = 'com.example'
+     version = '1.0.0'
+ }
+
+ subprojects {
+     apply plugin: 'java'
+     apply plugin: 'eclipse'
+     apply plugin: 'idea'
+
+     repositories {
+         mavenCentral()
+     }
+
+     dependencies {
+         // Define common dependencies here
+     }
+
+     sourceCompatibility = 1.8
+     targetCompatibility = 1.8
+
+     tasks.withType(JavaCompile) {
+         options.encoding = 'UTF-8'
+     }
+ }
+
+ project(':backend') {
+     apply plugin: 'org.springframework.boot'
+     apply plugin: 'io.spring.dependency-management'
+
+     dependencies {
+         implementation 'org.springframework.boot:spring-boot-starter-web'
+         implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+         // Add other backend dependencies as needed
+     }
+
+     springBoot {
+         mainClass = 'com.example.demo.DemoApplication'
+     }
+ }
+
+ project(':frontend') {
+     apply plugin: 'com.github.node-gradle'
+
+     node {
+         version = '14.17.0'
+         npmVersion = '6.14.13'
+         download = true
+     }
+
+     task installFrontendDependencies(type: NpmTask) {
+         description = 'Install frontend dependencies'
+         command = 'install'
+     }
+
+     installFrontendDependencies.dependsOn 'npmInstall'
+
+     dependencies {
+         // Define frontend dependencies here
+     }
+ }

@@ -1,0 +1,11 @@
+plugins {
+    id 'com.github.node-gradle.node' version '7.0.1'
+}
+
+node {
+    version = '14.17.0'
+    npmVersion = '6.14.13'
+    // Additional Node.js and npm configurations as needed
+}
+
+// Include additional configurations or plugins as needed
