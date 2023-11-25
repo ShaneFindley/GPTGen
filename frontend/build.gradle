@@ -3,9 +3,19 @@ plugins {
 }
 
 node {
-    version = '14.17.0'
-    npmVersion = '6.14.13'
+    version = '18.17.1'
+    npmVersion = '9.6.7'
     // Additional Node.js and npm configurations as needed
 }
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+//dependencies {
+//}
 
 // Include additional configurations or plugins as needed
